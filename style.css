@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --gold-accent: #b38b3f;
+    --gold-light: #e0be75;
+    --orange-primary: #f59e0b;
+    --orange-hover: #d97706;
+    --teal-color: #0d9488;
+    --whatsapp-color: #25d366;
+    --text-dark: #1e293b;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+}
+
+.logo {
+    font-family: 'Cinzel', serif;
+    font-size: 26px;
+    letter-spacing: 0.5px;
+}
+.text-gold { color: var(--gold-accent) !important; }
+.text-gold-light { color: var(--gold-light) !important; }
+.bg-gold { background-color: var(--gold-accent) !important; }
+
+/* Mells Style Orange Pill Button */
+.btn-orange-pill {
+    background-color: var(--orange-primary);
+    color: #ffffff !important;
+    border: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
+}
+.btn-orange-pill:hover {
+    background-color: var(--orange-hover);
+    transform: translateY(-1px);
+}
+
+/* Round Action Icons (Phone & WhatsApp) */
+.circle-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 1.5px solid currentColor;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+.text-teal { color: var(--teal-color); border-color: var(--teal-color); }
+.text-teal:hover { background-color: var(--teal-color); color: #ffffff; }
+
+.text-whatsapp { color: var(--whatsapp-color); border-color: var(--whatsapp-color); }
+.text-whatsapp:hover { background-color: var(--whatsapp-color); color: #ffffff; }
+
+/* Hover Dropdown Feature for Desktop */
+@media (min-width: 992px) {
+    .hover-dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+        animation: fadeIn 0.2s ease-in-out;
+    }
+    .hover-dropdown .dropdown-menu {
+        min-width: 280px;
+        border-radius: 12px;
+        padding: 8px 0;
+    }
+    .hover-dropdown:hover .icon-arrow {
+        transform: rotate(180deg);
+        transition: transform 0.3s ease;
+    }
+}
+
+.dropdown-item {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-dark);
+    transition: all 0.2s ease;
+}
+.dropdown-item:hover {
+    background-color: #fef3c7;
+    color: var(--gold-accent);
+    padding-left: 20px;
+}
+
+
+ /* Hero & Glass Styling */
+.hero-crystal {
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.2) 100%),
+                url('images/hero\ 2.avif') center/cover no-repeat;
+    background-blend-mode: overlay;
+    min-height: 80vh;
+}
+.hero-title { font-family: 'Cinzel', serif; font-size: 3rem; }
+.crystal-card {
+    background: rgba(255, 255, 255, 0.12);
+    backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.air-circle { width: 70px; height: 70px; }
+
+/* Quick Service Bar */
+.service-bar-section { margin-top: -30px; }
+.service-icon-card {
+    background: #ffffff;
+    border: 1px solid #eef0f2;
+    transition: all 0.3s ease;
+}
+.service-icon-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--gold-light);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+}
+.service-icon-card .icon-box {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    background: #fffbe6;
+    color: var(--gold-accent);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+.service-title { font-size: 12px; font-weight: 600; color: var(--text-dark); margin: 0; }
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+}

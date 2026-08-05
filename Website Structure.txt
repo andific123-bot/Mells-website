@@ -1,0 +1,6 @@
+mells-website/
+│
+├── index.html              (مرکزی ہوم پیج)
+├── service-detail.html     (تمام ۱۰ سروسز کا واحد ڈائنامک پیج)
+├── style.css               (ڈیزائننگ کی فائل)
+└── scrip.js                (ڈیٹا اور فنکشنلٹی کی فائل)
