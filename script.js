@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const bookingModalEl = document.getElementById('bookingModal');
     let bookingModal = null;
     
-    if (bookingModalEl) {
+    if (bookingModalEl && typeof bootstrap !== 'undefined') {
         bookingModal = new bootstrap.Modal(bookingModalEl);
     }
 
@@ -16,7 +16,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const serviceName = this.getAttribute('data-service') || 'General Booking';
             
             if (serviceSelect) {
-                // Find matching option or set to default
                 let matchFound = false;
                 for (let i = 0; i < serviceSelect.options.length; i++) {
                     if (serviceSelect.options[i].value.toLowerCase() === serviceName.toLowerCase()) {

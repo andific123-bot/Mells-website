@@ -13,18 +13,41 @@
 body {
     font-family: 'Poppins', sans-serif;
     color: var(--text-dark);
+    overflow-x: hidden;
 }
 
+/* Typography & Utility Classes */
 .logo {
     font-family: 'Cinzel', serif;
     font-size: 26px;
     letter-spacing: 0.5px;
 }
-.text-gold { color: var(--gold-accent) !important; }
-.text-gold-light { color: var(--gold-light) !important; }
-.bg-gold { background-color: var(--gold-accent) !important; }
 
-/* Mells Style Orange Pill Button */
+.text-gold {
+    color: var(--gold-accent) !important;
+}
+
+.text-gold-light {
+    color: var(--gold-light) !important;
+}
+
+.bg-gold {
+    background-color: var(--gold-accent) !important;
+}
+
+/* Buttons & Action Elements */
+.btn-gold {
+    background-color: var(--gold-accent);
+    color: #ffffff;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+    background-color: #96722e;
+    color: #ffffff;
+}
+
 .btn-orange-pill {
     background-color: var(--orange-primary);
     color: #ffffff !important;
@@ -32,12 +55,12 @@ body {
     transition: all 0.3s ease;
     box-shadow: 0 4px 12px rgba(245, 158, 11, 0.3);
 }
+
 .btn-orange-pill:hover {
     background-color: var(--orange-hover);
     transform: translateY(-1px);
 }
 
-/* Round Action Icons (Phone & WhatsApp) */
 .circle-icon {
     width: 40px;
     height: 40px;
@@ -50,70 +73,103 @@ body {
     text-decoration: none;
     transition: all 0.3s ease;
 }
-.text-teal { color: var(--teal-color); border-color: var(--teal-color); }
-.text-teal:hover { background-color: var(--teal-color); color: #ffffff; }
 
-.text-whatsapp { color: var(--whatsapp-color); border-color: var(--whatsapp-color); }
-.text-whatsapp:hover { background-color: var(--whatsapp-color); color: #ffffff; }
-
-/* Hover Dropdown Feature for Desktop */
-@media (min-width: 992px) {
-    .hover-dropdown:hover .dropdown-menu {
-        display: block;
-        margin-top: 0;
-        animation: fadeIn 0.2s ease-in-out;
-    }
-    .hover-dropdown .dropdown-menu {
-        min-width: 280px;
-        border-radius: 12px;
-        padding: 8px 0;
-    }
-    .hover-dropdown:hover .icon-arrow {
-        transform: rotate(180deg);
-        transition: transform 0.3s ease;
-    }
+.text-teal {
+    color: var(--teal-color);
+    border-color: var(--teal-color);
 }
 
+.text-teal:hover {
+    background-color: var(--teal-color);
+    color: #ffffff;
+}
+
+.text-whatsapp {
+    color: var(--whatsapp-color);
+    border-color: var(--whatsapp-color);
+}
+
+.text-whatsapp:hover {
+    background-color: var(--whatsapp-color);
+    color: #ffffff;
+}
+
+/* Header & Dropdowns */
 .dropdown-item {
     font-size: 14px;
     font-weight: 500;
     color: var(--text-dark);
     transition: all 0.2s ease;
 }
+
 .dropdown-item:hover {
     background-color: #fef3c7;
     color: var(--gold-accent);
     padding-left: 20px;
 }
 
+/* Desktop Hover Dropdown */
+@media (min-width: 992px) {
+    .hover-dropdown:hover .dropdown-menu {
+        display: block;
+        margin-top: 0;
+        animation: fadeIn 0.2s ease-in-out;
+    }
 
- /* Hero & Glass Styling */
+    .hover-dropdown .dropdown-menu {
+        min-width: 280px;
+        border-radius: 12px;
+        padding: 8px 0;
+    }
+
+    .hover-dropdown:hover .icon-arrow {
+        transform: rotate(180deg);
+        transition: transform 0.3s ease;
+    }
+}
+
+/* Hero Section */
 .hero-crystal {
-    background: linear-gradient(135deg, rgba(0, 0, 0, 0.35) 0%, rgba(0, 0, 0, 0.2) 100%),
-                url('images/hero\ 2.avif') center/cover no-repeat;
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.45) 0%, rgba(0, 0, 0, 0.25) 100%),
+        url('images/hero\ 2.avif') center/cover no-repeat;
     background-blend-mode: overlay;
     min-height: 80vh;
 }
-.hero-title { font-family: 'Cinzel', serif; font-size: 3rem; }
+
+.hero-title {
+    font-family: 'Cinzel', serif;
+    font-size: 3rem;
+    line-height: 1.2;
+}
+
 .crystal-card {
     background: rgba(255, 255, 255, 0.12);
     backdrop-filter: blur(16px);
     border: 1px solid rgba(255, 255, 255, 0.2);
 }
-.air-circle { width: 70px; height: 70px; }
 
-/* Quick Service Bar */
-.service-bar-section { margin-top: -30px; }
+.air-circle {
+    width: 70px;
+    height: 70px;
+}
+
+/* Service Section */
+.service-bar-section {
+    margin-top: -30px;
+}
+
 .service-icon-card {
     background: #ffffff;
     border: 1px solid #eef0f2;
     transition: all 0.3s ease;
 }
+
 .service-icon-card:hover {
     transform: translateY(-5px);
     border-color: var(--gold-light);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
 }
+
 .service-icon-card .icon-box {
     width: 48px;
     height: 48px;
@@ -125,9 +181,139 @@ body {
     justify-content: center;
     font-size: 20px;
 }
-.service-title { font-size: 12px; font-weight: 600; color: var(--text-dark); margin: 0; }
+
+.service-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0;
+}
 
 @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(8px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================================================================
+   COMPREHENSIVE RESPONSIVE MEDIA QUERIES (Mobile, Tablet, Desktop)
+   ========================================================================== */
+
+/* Large Tablets / Laptops (max-width: 1199px) */
+@media (max-width: 1199.98px) {
+    .hero-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* Tablets (max-width: 991px) */
+@media (max-width: 991.98px) {
+    .hero-crystal {
+        min-height: auto;
+        padding: 60px 0;
+    }
+
+    .hero-title {
+        font-size: 2.2rem;
+    }
+
+    .service-bar-section {
+        margin-top: 0;
+        padding-top: 30px;
+    }
+
+    .navbar-collapse {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        margin-top: 10px;
+    }
+
+    .hover-dropdown .dropdown-menu {
+        border: none;
+        box-shadow: none !important;
+        padding-left: 15px;
+        background-color: #f8f9fa;
+    }
+}
+
+/* Mobile Devices (max-width: 767px) */
+@media (max-width: 767.98px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+
+    .hero-desc {
+        font-size: 0.95rem !important;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .circle-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 15px;
+    }
+
+    .btn-orange-pill {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Small Mobile Screens (max-width: 575px) */
+@media (max-width: 575.98px) {
+    .hero-title {
+        font-size: 1.5rem;
+    }
+
+    .service-icon-card {
+        padding: 10px !important;
+    }
+
+    .service-icon-card .icon-box {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+
+    .service-title {
+        font-size: 11px;
+    }
+
+    .modal-dialog {
+        margin: 0.5rem;
+    }
+}
+/* Logo Styling */
+.site-logo {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    background-color: #ffffff;
+    padding: 5px 12px;
+    border-radius: 8px;
+}
+
+/* Responsive Logo adjustment */
+@media (max-width: 767.98px) {
+    .site-logo {
+        height: 45px;
+    }
 }
