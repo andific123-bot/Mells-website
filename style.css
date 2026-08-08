@@ -108,6 +108,11 @@ body {
     padding-left: 20px;
 }
 
+.navbar {
+    position: relative;
+    z-index: 9999 !important;
+}
+
 /* Desktop Hover Dropdown */
 @media (min-width: 992px) {
     .hover-dropdown:hover .dropdown-menu {
@@ -201,18 +206,31 @@ body {
     }
 }
 
-/* ==========================================================================
-   COMPREHENSIVE RESPONSIVE MEDIA QUERIES (Mobile, Tablet, Desktop)
-   ========================================================================== */
+/* Logo Styling */
+.site-logo {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+}
 
-/* Large Tablets / Laptops (max-width: 1199px) */
+.footer-logo {
+    height: 50px;
+    width: auto;
+    object-fit: contain;
+    background-color: #ffffff;
+    padding: 5px 12px;
+    border-radius: 8px;
+}
+
+/* Responsive Media Queries */
 @media (max-width: 1199.98px) {
     .hero-title {
         font-size: 2.5rem;
     }
 }
 
-/* Tablets (max-width: 991px) */
+/* Mobile & Tablet Navigation Rules (< 992px) */
 @media (max-width: 991.98px) {
     .hero-crystal {
         min-height: auto;
@@ -228,23 +246,42 @@ body {
         padding-top: 30px;
     }
 
+    /* Mobile Hamburger Menu Container */
     .navbar-collapse {
-        background: #ffffff;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-        margin-top: 10px;
+        display: none;
+        background-color: #ffffff !important;
+        padding: 15px !important;
+        border-radius: 10px !important;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15) !important;
+        position: absolute !important;
+        top: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        z-index: 99999 !important;
     }
 
+    .navbar-collapse.show {
+        display: block !important;
+    }
+
+    /* Mobile Sub-Dropdowns */
     .hover-dropdown .dropdown-menu {
-        border: none;
+        display: none;
+        position: static !important;
+        float: none !important;
         box-shadow: none !important;
-        padding-left: 15px;
-        background-color: #f8f9fa;
+        background-color: #f8f9fa !important;
+        width: 100%;
+        margin-top: 8px;
+        border-radius: 8px;
+        border: none;
+    }
+
+    .hover-dropdown .dropdown-menu.show {
+        display: block !important;
     }
 }
 
-/* Mobile Devices (max-width: 767px) */
 @media (max-width: 767.98px) {
     .hero-title {
         font-size: 1.8rem;
@@ -268,9 +305,12 @@ body {
         width: 100%;
         text-align: center;
     }
+
+    .site-logo {
+        height: 45px;
+    }
 }
 
-/* Small Mobile Screens (max-width: 575px) */
 @media (max-width: 575.98px) {
     .hero-title {
         font-size: 1.5rem;
@@ -292,63 +332,5 @@ body {
 
     .modal-dialog {
         margin: 0.5rem;
-    }
-}
-/* Logo Styling */
-.site-logo {
-    height: 55px;
-    width: auto;
-    object-fit: contain;
-    transition: transform 0.3s ease;
-}
-
-.footer-logo {
-    height: 50px;
-    width: auto;
-    object-fit: contain;
-    background-color: #ffffff;
-    padding: 5px 12px;
-    border-radius: 8px;
-}
-
-/* Responsive Logo adjustment */
-@media (max-width: 767.98px) {
-    .site-logo {
-        height: 45px;
-    }
-}
-
-/* Navbar Layering Fix */
-.navbar {
-    position: relative;
-    z-index: 9999 !important;
-}
-
-/* Mobile Adjustments (< 992px) */
-@media (max-width: 991.98px) {
-    .navbar-collapse {
-        background: #ffffff;
-        padding: 20px;
-        border-radius: 12px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        margin-top: 10px;
-        max-height: 80vh;
-        overflow-y: auto;
-    }
-
-    .hover-dropdown .dropdown-menu {
-        display: none;
-        position: static !important;
-        float: none;
-        width: 100%;
-        border: none;
-        box-shadow: none !important;
-        background-color: #f8f9fa;
-        margin-top: 8px;
-        border-radius: 8px;
-    }
-
-    .hover-dropdown .dropdown-menu.show {
-        display: block !important;
     }
 }

@@ -1,5 +1,48 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // 1. Dynamic Booking Modal Handling
+
+    // ==========================================================================
+    // 1. Mobile Menu & Dropdown Toggles
+    // ==========================================================================
+    const navbarToggler = document.querySelector('.navbar-toggler');
+    const navbarCollapse = document.querySelector('.navbar-collapse');
+
+    // Toggle main navigation menu on hamburger button click
+    if (navbarToggler && navbarCollapse) {
+        navbarToggler.addEventListener('click', function (e) {
+            e.stopPropagation();
+            navbarCollapse.classList.toggle('show');
+        });
+    }
+
+    // Toggle sub-dropdown menus on mobile devices
+    const dropdownToggles = document.querySelectorAll('.hover-dropdown > a');
+    dropdownToggles.forEach(function (toggle) {
+        toggle.addEventListener('click', function (e) {
+            if (window.innerWidth < 992) {
+                e.preventDefault();
+                e.stopPropagation();
+                const parent = this.parentElement;
+                const menu = parent.querySelector('.dropdown-menu');
+
+                if (menu) {
+                    menu.classList.toggle('show');
+                }
+            }
+        });
+    });
+
+    // Close mobile menu when clicking outside of navbar
+    document.addEventListener('click', function (e) {
+        if (window.innerWidth < 992 && navbarCollapse && navbarCollapse.classList.contains('show')) {
+            if (!navbarCollapse.contains(e.target) && !navbarToggler.contains(e.target)) {
+                navbarCollapse.classList.remove('show');
+            }
+        }
+    });
+
+    // ==========================================================================
+    // 2. Dynamic Booking Modal Handling
+    // ==========================================================================
     const bookingModalEl = document.getElementById('bookingModal');
     let bookingModal = null;
 
@@ -35,12 +78,14 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // 2. Booking Form Submission
+    // ==========================================================================
+    // 3. Booking Form Submission
+    // ==========================================================================
     const bookingForm = document.getElementById('bookingForm');
     if (bookingForm) {
         bookingForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            alert('آپ کی بکنگ کی درخواست موصول ہو گئی ہے! ہماری ٹیم جلد آپ سے رابطہ کرے گی۔');
+            alert('Your booking request has been received! Our team will contact you shortly.');
             if (bookingModal) {
                 bookingModal.hide();
             }
@@ -48,7 +93,9 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // 3. Contact Form Interactive Validation
+    // ==========================================================================
+    // 4. Contact Form Interactive Validation
+    // ==========================================================================
     const contactForm = document.getElementById('contactForm');
     const contactAlert = document.getElementById('contactAlert');
 
@@ -76,32 +123,15 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 
-    // 4. Newsletter Form Handling
+    // ==========================================================================
+    // 5. Newsletter Form Handling
+    // ==========================================================================
     const newsletterForm = document.getElementById('newsletterForm');
     if (newsletterForm) {
         newsletterForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            alert('نیوز لیٹر سبسکرائب کرنے کا شکریہ!');
+            alert('Thank you for subscribing to our newsletter!');
             newsletterForm.reset();
         });
     }
-});
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    const dropdownToggles = document.querySelectorAll('.hover-dropdown > a');
-
-    dropdownToggles.forEach(function (toggle) {
-        toggle.addEventListener('click', function (e) {
-            if (window.innerWidth < 992) {
-                e.preventDefault();
-                const parent = this.parentElement;
-                const menu = parent.querySelector('.dropdown-menu');
-
-                if (menu) {
-                    menu.classList.toggle('show');
-                }
-            }
-        });
-    });
 });
