@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // 1. Dynamic Booking Modal Handling
     const bookingModalEl = document.getElementById('bookingModal');
     let bookingModal = null;
-    
+
     if (bookingModalEl && typeof bootstrap !== 'undefined') {
         bookingModal = new bootstrap.Modal(bookingModalEl);
     }
@@ -14,7 +14,7 @@ document.addEventListener("DOMContentLoaded", function () {
         btn.addEventListener('click', function (e) {
             e.preventDefault();
             const serviceName = this.getAttribute('data-service') || 'General Booking';
-            
+
             if (serviceSelect) {
                 let matchFound = false;
                 for (let i = 0; i < serviceSelect.options.length; i++) {
@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (contactForm) {
         contactForm.addEventListener('submit', function (e) {
             e.preventDefault();
-            
+
             if (!contactForm.checkValidity()) {
                 e.stopPropagation();
                 contactForm.classList.add('was-validated');
@@ -85,4 +85,23 @@ document.addEventListener("DOMContentLoaded", function () {
             newsletterForm.reset();
         });
     }
+});
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    const dropdownToggles = document.querySelectorAll('.hover-dropdown > a');
+
+    dropdownToggles.forEach(function (toggle) {
+        toggle.addEventListener('click', function (e) {
+            if (window.innerWidth < 992) {
+                e.preventDefault();
+                const parent = this.parentElement;
+                const menu = parent.querySelector('.dropdown-menu');
+
+                if (menu) {
+                    menu.classList.toggle('show');
+                }
+            }
+        });
+    });
 });
