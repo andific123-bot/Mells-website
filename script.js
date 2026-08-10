@@ -135,3 +135,87 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
+< !--Dynamic Image & Service Handler Script-- >
+
+    document.addEventListener("DOMContentLoaded", function () {
+        // 1. URL Parameter حاصل کریں
+        const urlParams = new URLSearchParams(window.location.search);
+        const serviceKey = urlParams.get('service');
+
+        // 2. تمام Home Services اور Personal Services کے لیے الگ الگ تصویر اور تفصیلات
+        const servicesData = {
+            // --- Home Services ---
+            'ac-services': {
+                title: "AC Services & Duct Cleaning",
+                image: "images/AC Service.avif",
+                desc: "Professional AC cleaning, deep duct cleaning, coil wash, and gas refilling."
+            },
+            'furniture-cleaning': {
+                title: "Furniture & Sofa Cleaning",
+                image: "images/sofa Cleaning.avif",
+                desc: "High-pressure steam cleaning for sofas, carpets, armchairs, and mattresses."
+            },
+            'deep-cleaning': {
+                title: "Home Deep Cleaning",
+                image: "images/home deep cleaning.avif",
+                desc: "Full home deep cleaning service including kitchen, washrooms, balcony, and floor polishing."
+            },
+            'water-pipeline': {
+                title: "Water Tank & Pipeline Services",
+                image: "images/water tank and pipeline service.avif",
+                desc: "Hygienic water tank sterilization, pipeline flushing, and leak inspection."
+            },
+            'pest-control': {
+                title: "Pest Control Services",
+                image: "images/Pest Control.avif",
+                desc: "Safe and eco-friendly pest extermination for cockroaches, bedbugs, termites, and pests."
+            },
+            'mold-removal': {
+                title: "Mold Removal & Remediation",
+                image: "images/Mold Removal & Remediation.avif",
+                desc: "Advanced mold removal, anti-fungal wall treatments, and humidity control."
+            },
+
+            // --- Personal Services ---
+            'environmental-testing': {
+                title: "Indoor Air Quality Testing",
+                image: "images/air-testing.jpg",
+                desc: "Comprehensive testing for indoor air purity, dust mites, allergens, and airborne toxic particles."
+            },
+            'maid-services': {
+                title: "Professional Maid Services",
+                image: "images/maid-service.jpg",
+                desc: "Trained and verified maids for daily, weekly, or monthly housekeeping tasks."
+            },
+            'painting-moving': {
+                title: "Painting & Maintenance",
+                image: "images/painting.jpg",
+                desc: "Interior/exterior wall painting, drywall repairs, and general home maintenance."
+            },
+            'packages': {
+                title: "Annual Care Packages",
+                image: "images/annual-packages.jpg",
+                desc: "All-in-one customized annual maintenance packages for hassle-free home care."
+            }
+        };
+
+        // 3. اگر URL میں سروس میچ ہو جائے تو تصویر اور ٹیکسٹ اپ ڈیٹ کریں
+        if (serviceKey && servicesData[serviceKey]) {
+            const data = servicesData[serviceKey];
+
+            // تصویر اپ ڈیٹ کریں
+            const imgElement = document.getElementById('sidebarServiceImg');
+            if (imgElement) {
+                imgElement.src = data.image;
+                imgElement.alt = data.title;
+            }
+
+            // عنوان اور ٹیکسٹ اپ ڈیٹ کریں
+            document.getElementById('pageTitle').innerText = `${data.title} - MELLS`;
+            document.getElementById('serviceHeaderTitle').innerText = data.title;
+            document.getElementById('serviceHeaderDesc').innerText = data.desc;
+            document.getElementById('contentTitle').innerText = `About ${data.title}`;
+            document.getElementById('contentDesc').innerText = data.desc;
+        }
+    });
